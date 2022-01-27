@@ -86,7 +86,7 @@ jobs:
           if grep -q ${{ github.event.inputs.git-ref }} index.html; then
             echo "Already one entry"
           else
-            sed  '/<\/h2>/a \\t<a href="${{ github.event.inputs.git-ref }}/${{ github.event.inputs.git-ref }}.html" style="font-family:verdana;">MOSIP ${{ github.event.inputs.git-ref }}</a>' index.html > temp.html && mv temp.html index.html
+            sed  '/<\/h2>/a \\t<div><a href="${{ github.event.inputs.git-ref }}/${{ github.event.inputs.git-ref }}.html" style="font-family:verdana;">MOSIP ${{ github.event.inputs.git-ref }}</a></div><b>' index.html > temp.html && mv temp.html index.html
           fi
 
       - name: Commit Changes to Documenation Repository
